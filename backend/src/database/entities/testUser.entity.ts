@@ -1,3 +1,4 @@
+import { Field, Int, ObjectType } from '@nestjs/graphql';
 import {
   Column,
   Entity,
@@ -18,20 +19,26 @@ export const MAX_LENGTH = {
 } as const;
 
 @Entity('test_user')
+@ObjectType()
 export class TestUser {
   @PrimaryGeneratedColumn()
+  @Field(() => Int, { description: 'id of the user' })
   readonly id: number;
 
   @Column({ name: 'email', length: MAX_LENGTH.EMAIL, unique: true })
+  @Field(() => String, { description: 'email of the user' })
   email: string;
 
   @Column({ name: 'password', length: MAX_LENGTH.PASSWORD })
+  @Field(() => String, { description: 'password of the user' })
   password: string;
 
   @Column({ name: 'first_name', length: MAX_LENGTH.FIRST_NAME })
+  @Field(() => String, { description: 'firstName of the user' })
   firstName: string;
 
   @Column({ name: 'last_name', length: MAX_LENGTH.LAST_NAME })
+  @Field(() => String, { description: 'lastName of the user' })
   lastName: string;
 
   /** 1対1 */

@@ -1,0 +1,60 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TestUser {
+  """id of the user"""
+  id: Int!
+
+  """email of the user"""
+  email: String!
+
+  """password of the user"""
+  password: String!
+
+  """firstName of the user"""
+  firstName: String!
+
+  """lastName of the user"""
+  lastName: String!
+}
+
+type Query {
+  sampleGraphqls: [TestUser!]!
+  sampleGraphql(id: Int!): TestUser!
+}
+
+type Mutation {
+  createSampleGraphql(createSampleGraphqlInput: CreateSampleGraphqlInput!): TestUser!
+  updateSampleGraphql(updateSampleGraphqlInput: UpdateSampleGraphqlInput!): TestUser!
+  removeSampleGraphql(id: Int!): TestUser!
+}
+
+input CreateSampleGraphqlInput {
+  """email"""
+  email: String!
+
+  """firstName"""
+  firstName: String!
+
+  """lastName"""
+  lastName: String!
+
+  """password"""
+  password: String!
+}
+
+input UpdateSampleGraphqlInput {
+  """email"""
+  email: String
+
+  """firstName"""
+  firstName: String
+
+  """lastName"""
+  lastName: String
+
+  """password"""
+  password: String
+  id: Int!
+}
